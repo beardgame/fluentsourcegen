@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bearded.FluentSourceGen", "Bearded.FluentSourceGen\Bearded.FluentSourceGen.csproj", "{B4AF9284-8FFD-4DDD-9151-F940193FEA23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bearded.FluentSourceGen.Tests", "Bearded.FluentSourceGen.Tests\Bearded.FluentSourceGen.Tests.csproj", "{B8655E69-D70B-43C5-8BE4-18EFBC1305B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{B4AF9284-8FFD-4DDD-9151-F940193FEA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4AF9284-8FFD-4DDD-9151-F940193FEA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4AF9284-8FFD-4DDD-9151-F940193FEA23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8655E69-D70B-43C5-8BE4-18EFBC1305B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8655E69-D70B-43C5-8BE4-18EFBC1305B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8655E69-D70B-43C5-8BE4-18EFBC1305B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8655E69-D70B-43C5-8BE4-18EFBC1305B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
