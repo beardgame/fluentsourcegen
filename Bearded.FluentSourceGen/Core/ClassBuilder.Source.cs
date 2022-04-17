@@ -36,6 +36,6 @@ public sealed partial class ClassBuilder
 
     private static string toSourceString(IFieldReference fieldReference)
     {
-        return $"private static {fieldReference.Type.Name} {fieldReference.Name};";
+        return $"private {fieldReference.Type.Name} {fieldReference.Name};";
     }
 }

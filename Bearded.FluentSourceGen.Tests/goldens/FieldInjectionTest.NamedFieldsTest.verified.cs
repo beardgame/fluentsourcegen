@@ -1,7 +1,7 @@
 ﻿class MyClass
 {
-    private static Int32 myInt;
-    private static String myString;
+    private Int32 myInt;
+    private String myString;
 
     public MyClass(Int32 myInt, String myString)
     {
