@@ -102,4 +102,20 @@ var b = a + 1;
 
         action.Should().Throw<InvalidOperationException>();
     }
+
+    [Fact]
+    public void TrimEndRemovesEmptyLinesLeavingLastNewline()
+    {
+        var result = SourceFileBuilder.NewSourceFileBuilder()
+            .AddEmptyLine()
+            .AddExpression("var a = 1")
+            .AddEmptyLine()
+            .AddEmptyLine()
+            .TrimEnd()
+            .ToSourceString();
+
+        result.Should().Be(@"
+var a = 1
+");
+    }
 }

@@ -11,7 +11,7 @@ sealed class SourceFileBuilder
     private readonly StringBuilder sb = new();
     private string currentIndentation = "";
 
-    public static SourceFileBuilder NewSourceFileBuilder() => new SourceFileBuilder();
+    public static SourceFileBuilder NewSourceFileBuilder() => new();
 
     private SourceFileBuilder() {}
 
@@ -52,6 +52,13 @@ sealed class SourceFileBuilder
     {
         sb.Append(currentIndentation);
         sb.AppendLine(line);
+        return this;
+    }
+
+    public SourceFileBuilder TrimEnd()
+    {
+        sb.TrimEnd();
+        sb.AppendLine();
         return this;
     }
 

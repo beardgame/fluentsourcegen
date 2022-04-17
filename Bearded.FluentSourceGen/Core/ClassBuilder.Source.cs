@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Text;
 using Bearded.FluentSourceGen.Utilities;
 
 namespace Bearded.FluentSourceGen;
@@ -8,30 +7,31 @@ public sealed partial class ClassBuilder
 {
     public string ToSourceString()
     {
-        var sb = new StringBuilder();
+        var sb = SourceFileBuilder.NewSourceFileBuilder();
+        AppendSourceToFile(sb);
+        return sb.ToSourceString();
+    }
 
-        // TODO: indentation
-        sb.AppendLine($"class {className}");
-        sb.AppendLine("{");
+    internal void AppendSourceToFile(SourceFileBuilder builder)
+    {
+        builder.StartBlock($"class {className}");
 
         foreach (var fieldLine in fields.Select(toSourceString))
         {
-            sb.AppendLine(fieldLine);
+            builder.AddExpression(fieldLine);
         }
 
-        sb.AppendLine();
+        builder.AddEmptyLine();
 
         foreach (var ctor in constructors)
         {
-            sb.Append(ctor.ToSourceString());
-            sb.AppendLine();
+            ctor.AppendSourceToFile(builder);
+            builder.AddEmptyLine();
         }
 
-        sb.TrimEnd();
-        sb.AppendLine();
-        sb.AppendLine("}");
-
-        return sb.ToString();
+        builder
+            .TrimEnd()
+            .EndBlock();
     }
 
     private static string toSourceString(IFieldReference fieldReference)
