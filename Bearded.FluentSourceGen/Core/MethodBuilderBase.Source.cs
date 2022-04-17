@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text;
+using Bearded.FluentSourceGen.Utilities;
 
 namespace Bearded.FluentSourceGen;
 
@@ -9,25 +10,21 @@ public abstract partial class MethodBuilderBase<TMethodBuilder>
 
     public string ToSourceString()
     {
-        var sb = new StringBuilder();
+        var sb = SourceFileBuilder.NewSourceFileBuilder();
+        AppendSourceToFile(sb);
+        return sb.ToSourceString();
+    }
 
-        sb.Append(ToSignatureString());
-        sb.Append('(');
+    internal void AppendSourceToFile(SourceFileBuilder builder)
+    {
+        var parameterString = string.Join(", ", parameters.Select(p => $"{p.Type.Name} {p.Name}"));
+        var fullSignatureString = $"{ToSignatureString()}({parameterString})";
 
-        sb.AppendJoin(", ", parameters.Select(p => $"{p.Type.Name} {p.Name}"));
-
-        sb.Append(')');
-        sb.AppendLine();
-        // TODO: indentation
-        sb.AppendLine("{");
-
+        builder.StartBlock(fullSignatureString);
         foreach (var sourceExpression in expressions)
         {
-            sb.AppendLine(sourceExpression.ToSourceString());
+            builder.AddExpression(sourceExpression.ToSourceString());
         }
-
-        sb.AppendLine("}");
-
-        return sb.ToString();
+        builder.EndBlock();
     }
 }
