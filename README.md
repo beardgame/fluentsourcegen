@@ -41,13 +41,15 @@ sealed class MyClass
 ```
 
 ## State of the library
-This library is currently under **heavy development**. Many parts of this library do not have all functionality yet, and we expect public interfaces to change over time as we converge on a final workable MVP. PRs in this state are welcome, but it is recommended you file an issue with your feature request first before starting implementing, so we can help you working on it in context of the final goal of the library.
+This library is currently under **heavy development**. Many parts of this library do not have all functionality yet, and we expect public interfaces to change over time as we converge on a final workable MVP. PRs in this state are welcome, but it is recommended you follow the contributing guidelines below to help us move in the overall direction we are hoping to go in.
 
 ## Contributing
-This library follows the [default contribution guidelines](https://github.com/beardgame/.github/CONTRIBUTING.md) from the bearded organisation. In addition, PRs created for this library are expected to:
+This library follows the [default contribution guidelines](https://github.com/beardgame/.github/CONTRIBUTING.md) from the beardgame organisation. In addition, PRs created for this library are expected to:
 
 * include at least one test that demonstrates the new feature in use through a golden;
 * update the unreleased section in the [changelog](CHANGELOG.md).
+
+Before starting your contribution, first check if there is an issue for the feature you are building. If it is assigned, communicate with the assignee to avoid double work; if not, assign the issue to yourself. Use the issue to describe your intended implementation approach. This can help reduce churn in the code review phase, after you have already spent a lot of time on writing code. If no issue is present, you can create a draft PR from an empty branch (`git commit --allow-empty -m "[description of your feature]"`) instead.
 
 ## Releases
 This project releases regularly following the versioning system as outlined in the [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard. Prerelease versions are numbered using the suffix `-dev.#`.
