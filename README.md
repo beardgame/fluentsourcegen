@@ -1,4 +1,5 @@
 # Bearded.FluentSourceGen
+
 [![Build & Test](https://github.com/beardgame/fluentsourcegen/actions/workflows/dotnet-build.yml/badge.svg)](https://github.com/beardgame/fluentsourcegen/actions/workflows/dotnet-build.yml)
 
 Bearded.FluentSourceGen is a library that can be used to write source generation code for C# using a type safe, fluent interface. This prevents authors of source generators having to use string manupulation to output their source. Using this fluent interface brings several advantages over using string manipulation:
@@ -41,10 +42,13 @@ sealed class MyClass
 ```
 
 ## State of the library
+
 This library is currently under **heavy development**. Many parts of this library do not have all functionality yet, and we expect public interfaces to change over time as we converge on a final workable MVP. PRs in this state are welcome, but it is recommended you follow the contributing guidelines below to help us move in the overall direction we are hoping to go in.
 
 ## Contributing
+
 See <CONTRIBUTING.md>.
 
 ## Releases
+
 This project releases regularly following the versioning system as outlined in the [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard. Prerelease versions are numbered using the suffix `-dev.#`.
