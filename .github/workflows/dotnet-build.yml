@@ -1,29 +1,11 @@
-name: Build & Test
+name: Build .NET
 
 on:
   push:
-    branches: [ main ]
+    branches: [ $default-branch ]
   pull_request:
-    branches: [ main ]
+    branches: [ $default-branch ]
 
 jobs:
-  build:
-
-    name: Build & Test
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: |
-            3.1.x
-            5.0.x
-            6.0.x
-      - name: Install dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-      - name: Test
-        run: dotnet test --no-restore --verbosity normal
+  dotnet-build:
+    uses: beardgame/.github/.github/workflows/dotnet-build.yml@main
