@@ -12,7 +12,6 @@ public static class StaticConfig
     {
         DefaultVerifySettings = new VerifySettings();
         DefaultVerifySettings.UseDirectory("goldens");
-        DefaultVerifySettings.UseExtension("cs");
     }
 
     [ModuleInitializer]

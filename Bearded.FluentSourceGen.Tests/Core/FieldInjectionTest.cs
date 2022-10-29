@@ -17,6 +17,6 @@ public sealed class FieldInjectionTest
             .AddConstructor(ctor => ctor.InjectFields(intFieldReference, stringFieldReference))
             .ToSourceString();
 
-        return Verifier.Verify(source, DefaultVerifySettings);
+        return Verifier.Verify(source, settings: DefaultVerifySettings, extension: "cs");
     }
 }
