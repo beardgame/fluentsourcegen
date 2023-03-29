@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFrameworks>net6.0;netcoreapp3.1</TargetFrameworks>
         <IsPackable>false</IsPackable>
         <LangVersion>10</LangVersion>
     </PropertyGroup>
@@ -28,6 +28,13 @@
 
     <ItemGroup>
         <Compile Remove="goldens/*.cs" />
+        <Compile Remove="ModuleInitializer.cs" />
+    </ItemGroup>
+
+    <!-- Hacks to make netstandard more usable -->
+    <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+        <!-- Needed to make module initializers work -->
+        <Compile Include="ModuleInitializer.cs" />
     </ItemGroup>
 
 </Project>

@@ -1,8 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
         <LangVersion>10</LangVersion>
     </PropertyGroup>
 
+	<ItemGroup>
+		<Compile Remove="IsExternalInit.cs" />
+	</ItemGroup>
+
+	<!-- Hacks to make netstandard more usable -->
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+        <!-- Needed to make indexes work -->
+        <PackageReference Include="IndexRange" Version="1.0.2" />
+        <!-- Needed to make C#9 features work -->
+        <Compile Include="IsExternalInit.cs" />
+    </ItemGroup>
 </Project>
