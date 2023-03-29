@@ -9,5 +9,5 @@ jobs:
   dotnet-publish:
     uses: beardgame/.github/.github/workflows/dotnet-publish.yml@main
     secrets:
-      GITHUB_TOKEN: $GITHUB_TOKEN
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
