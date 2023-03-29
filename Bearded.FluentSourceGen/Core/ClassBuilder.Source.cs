@@ -34,8 +34,8 @@ public sealed partial class ClassBuilder
             .EndBlock();
     }
 
-    private static string toSourceString(IFieldReference fieldReference)
+    private static string toSourceString(IBuiltField field)
     {
-        return $"private {fieldReference.Type.Name} {fieldReference.Name};";
+        return $"{field.Visibility.ToSourceString()} {field.Type.Name} {field.Name};";
     }
 }
