@@ -6,6 +6,7 @@ namespace Bearded.FluentSourceGen;
 public sealed partial class ClassBuilder
 {
     private readonly List<IBuiltField> fields = new();
+    private readonly List<IBuiltProperty> properties = new();
 
     public ClassBuilder AddField<T>(string name, out FieldReference<T> fieldReference)
     {
@@ -20,6 +21,18 @@ public sealed partial class ClassBuilder
         var built = builder.Build();
         fields.Add(built);
         fieldReference = built.Reference;
+        return this;
+    }
+
+    public ClassBuilder AddAutoGetter<T>(
+        string name,
+        MemberVisibility visibility,
+        FieldReference<T> field,
+        out PropertyReference<T> propertyReference)
+    {
+        var built = new BuiltProperty<T>(name, visibility, field);
+        properties.Add(built);
+        propertyReference = built.Reference;
         return this;
     }
 }

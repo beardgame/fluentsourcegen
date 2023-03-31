@@ -23,6 +23,11 @@ public sealed partial class ClassBuilder
 
         builder.AddEmptyLine();
 
+        foreach (var propertyLine in properties.Select(toSourceString))
+        {
+            builder.AddExpression(propertyLine);
+        }
+
         foreach (var ctor in constructors)
         {
             ctor.AppendSourceToFile(builder);
@@ -37,5 +42,11 @@ public sealed partial class ClassBuilder
     private static string toSourceString(IBuiltField field)
     {
         return $"{field.Visibility.ToSourceString()} {field.Type.Name} {field.Name};";
+    }
+
+    private static string toSourceString(IBuiltProperty property)
+    {
+        return
+            $"{property.Visibility.ToSourceString()} {property.Type.Name} {property.Name} => {property.WrappedField.Name};";
     }
 }
