@@ -24,7 +24,6 @@ public class MethodBuilder : MethodBuilderBase<MethodBuilder>
 
     protected override string ToSignatureString()
     {
-        // TODO: shouldn't always be public, or non-static, or...
-        return $"public {returnType} {methodName}";
+        return $"{Visibility.ToSourceString()} {returnType} {methodName}";
     }
 }

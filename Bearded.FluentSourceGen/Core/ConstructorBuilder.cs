@@ -9,11 +9,11 @@ public sealed partial class ConstructorBuilder : MethodBuilderBase<ConstructorBu
     public ConstructorBuilder(string className)
     {
         this.className = className;
+        WithVisibility(MemberVisibility.Public);
     }
 
     protected override string ToSignatureString()
     {
-        // TODO: shouldn't always be public
-        return $"public {className}";
+        return $"{Visibility.ToSourceString()} {className}";
     }
 }
