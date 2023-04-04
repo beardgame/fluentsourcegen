@@ -6,7 +6,7 @@ public sealed partial class ConstructorBuilder
     {
         foreach (var field in fields)
         {
-            AddParameter(field.Type, field.Name, out var parameterReference);
+            AddParameter(field.Name, field.Type, out var parameterReference);
             // TODO: this shouldn't be string-based
             AddExpression(SourceExpression.FromSource($"this.{field.Name} = {parameterReference.Name};"));
         }

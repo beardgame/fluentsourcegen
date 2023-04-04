@@ -14,7 +14,7 @@ public abstract partial class MethodBuilderBase<TMethodBuilder>
         return This;
     }
 
-    public TMethodBuilder AddParameter(Type type, string name, out IParameterReference parameterReference)
+    public TMethodBuilder AddParameter(string name, Type type, out IParameterReference parameterReference)
     {
         parameterReference = new ParameterReference(name, type);
         parameters.Add(parameterReference);
