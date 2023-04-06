@@ -24,6 +24,17 @@ public sealed partial class ClassBuilder
         return this;
     }
 
+    public ClassBuilder AddField(
+        string name, Type type, Func<FieldBuilder, FieldBuilder> builderFunc, out FieldReference fieldReference)
+    {
+        var builder = FieldBuilder.NewFieldBuilder(name, type);
+        builder = builderFunc(builder);
+        var built = builder.Build();
+        fields.Add(built);
+        fieldReference = built.Reference;
+        return this;
+    }
+
     public ClassBuilder AddAutoGetter<T>(
         string name,
         MemberVisibility visibility,
