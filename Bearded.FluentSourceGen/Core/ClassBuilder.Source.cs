@@ -5,13 +5,6 @@ namespace Bearded.FluentSourceGen;
 
 public sealed partial class ClassBuilder
 {
-    public string ToSourceString()
-    {
-        var sb = SourceFileBuilder.NewSourceFileBuilder();
-        AppendSourceToFile(sb);
-        return sb.ToSourceString();
-    }
-
     internal void AppendSourceToFile(SourceFileBuilder builder)
     {
         builder.StartBlock($"class {className}");
