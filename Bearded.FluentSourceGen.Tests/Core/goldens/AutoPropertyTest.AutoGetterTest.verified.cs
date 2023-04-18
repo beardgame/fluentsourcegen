@@ -2,7 +2,7 @@
 
 class MyClass
 {
-    private Int32 myInt;
+    private System.Int32 myInt;
 
-    public Int32 MyInt => myInt;
+    public System.Int32 MyInt => myInt;
 }

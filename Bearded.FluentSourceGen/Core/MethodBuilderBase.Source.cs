@@ -17,7 +17,7 @@ public abstract partial class MethodBuilderBase<TMethodBuilder>
 
     internal void AppendSourceToFile(SourceFileBuilder builder)
     {
-        var parameterString = string.Join(", ", parameters.Select(p => $"{p.Type.Name} {p.Name}"));
+        var parameterString = string.Join(", ", parameters.Select(p => $"{p.Type.ToSourceString()} {p.Name}"));
         var fullSignatureString = $"{ToSignatureString()}({parameterString})";
 
         builder.StartBlock(fullSignatureString);

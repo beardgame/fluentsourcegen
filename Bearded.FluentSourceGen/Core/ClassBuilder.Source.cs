@@ -34,12 +34,12 @@ public sealed partial class ClassBuilder
 
     private static string toSourceString(IBuiltField field)
     {
-        return $"{field.Visibility.ToSourceString()} {field.Type.Name} {field.Name};";
+        return $"{field.Visibility.ToSourceString()} {field.Type.ToSourceString()} {field.Name};";
     }
 
     private static string toSourceString(IBuiltProperty property)
     {
         return
-            $"{property.Visibility.ToSourceString()} {property.Type.Name} {property.Name} => {property.WrappedField.Name};";
+            $"{property.Visibility.ToSourceString()} {property.Type.ToSourceString()} {property.Name} => {property.WrappedField.Name};";
     }
 }

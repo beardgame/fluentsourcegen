@@ -2,10 +2,10 @@
 
 class MyClass
 {
-    private Int32 myInt;
-    private String myString;
+    private System.Int32 myInt;
+    private System.String myString;
 
-    public MyClass(Int32 myInt, String myString)
+    public MyClass(System.Int32 myInt, System.String myString)
     {
         this.myInt = myInt;
         this.myString = myString;
