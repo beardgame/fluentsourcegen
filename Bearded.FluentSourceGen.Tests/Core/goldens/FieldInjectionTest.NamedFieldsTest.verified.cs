@@ -1,4 +1,6 @@
-﻿class MyClass
+﻿namespace Bearded.FluentSourceGen.Golden;
+
+class MyClass
 {
     private Int32 myInt;
     private String myString;

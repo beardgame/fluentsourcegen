@@ -12,6 +12,7 @@ public sealed class FieldInjectionTest
     public Task NamedFieldsTest()
     {
         var source = FileBuilder.NewFileBuilder("MyClass.cs")
+            .SetNamespace("Bearded.FluentSourceGen.Golden")
             .AddClass("MyClass", c => c
                 .AddField<int>("myInt", out var intFieldReference)
                 .AddField<string>("myString", out var stringFieldReference)

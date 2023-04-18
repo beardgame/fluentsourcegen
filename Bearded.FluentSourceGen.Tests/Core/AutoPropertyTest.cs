@@ -12,6 +12,7 @@ public sealed class AutoPropertyTest
     public Task AutoGetterTest()
     {
         var source = FileBuilder.NewFileBuilder("MyClass.cs")
+            .SetNamespace("Bearded.FluentSourceGen.Golden")
             .AddClass("MyClass", c => c
                 .AddField<int>("myInt", out var intFieldReference)
                 .AddAutoGetter("MyInt", MemberVisibility.Public, intFieldReference, out _))

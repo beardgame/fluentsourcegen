@@ -8,9 +8,16 @@ sealed partial class FileBuilder
     }
 
     private readonly string fileName;
+    private string? fileNamespace;
 
     private FileBuilder(string fileName)
     {
         this.fileName = fileName;
+    }
+
+    public FileBuilder SetNamespace(string ns)
+    {
+        fileNamespace = ns;
+        return this;
     }
 }
