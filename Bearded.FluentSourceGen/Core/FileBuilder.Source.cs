@@ -2,7 +2,7 @@ using Bearded.FluentSourceGen.Utilities;
 
 namespace Bearded.FluentSourceGen;
 
-sealed partial class FileBuilder
+public sealed partial class FileBuilder
 {
     public string ToSourceString()
     {

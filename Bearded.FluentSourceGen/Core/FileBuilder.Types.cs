@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Bearded.FluentSourceGen;
 
-sealed partial class FileBuilder
+public sealed partial class FileBuilder
 {
     // TODO: this should ideally have built classes instead, but for that we need built methods first
     private readonly List<ClassBuilder> classes = new();
