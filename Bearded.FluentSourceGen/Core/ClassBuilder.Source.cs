@@ -7,7 +7,7 @@ public sealed partial class ClassBuilder
 {
     internal void AppendSourceToFile(SourceFileBuilder builder)
     {
-        builder.StartBlock($"class {className}");
+        builder.StartBlock($"class {className}{baseTypesString()}");
 
         foreach (var fieldLine in fields.Select(toSourceString))
         {
@@ -30,6 +30,17 @@ public sealed partial class ClassBuilder
         builder
             .TrimEnd()
             .EndBlock();
+    }
+
+    private string baseTypesString()
+    {
+        if (interfaces.Count == 0)
+        {
+            return "";
+        }
+
+        var concatenatedTypes = string.Join(", ", interfaces.Select(i => i.ToSourceString()));
+        return $" : {concatenatedTypes}";
     }
 
     private static string toSourceString(IBuiltField field)
