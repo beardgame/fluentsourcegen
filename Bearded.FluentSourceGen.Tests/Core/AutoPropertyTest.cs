@@ -11,9 +11,10 @@ public sealed class AutoPropertyTest
     [Fact]
     public Task AutoGetterTest()
     {
-        var source = ClassBuilder.NewClassBuilder("MyClass")
-            .AddField<int>("myInt", out var intFieldReference)
-            .AddAutoGetter("MyInt", MemberVisibility.Public, intFieldReference, out _)
+        var source = FileBuilder.NewFileBuilder("MyClass.cs")
+            .AddClass("MyClass", c => c
+                .AddField<int>("myInt", out var intFieldReference)
+                .AddAutoGetter("MyInt", MemberVisibility.Public, intFieldReference, out _))
             .ToSourceString();
 
         return Verifier.Verify(source, settings: DefaultVerifySettings, extension: "cs");

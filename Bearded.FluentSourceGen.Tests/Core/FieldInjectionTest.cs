@@ -11,10 +11,11 @@ public sealed class FieldInjectionTest
     [Fact]
     public Task NamedFieldsTest()
     {
-        var source = ClassBuilder.NewClassBuilder("MyClass")
-            .AddField<int>("myInt", out var intFieldReference)
-            .AddField<string>("myString", out var stringFieldReference)
-            .AddConstructor(ctor => ctor.InjectFields(intFieldReference, stringFieldReference))
+        var source = FileBuilder.NewFileBuilder("MyClass.cs")
+            .AddClass("MyClass", c => c
+                .AddField<int>("myInt", out var intFieldReference)
+                .AddField<string>("myString", out var stringFieldReference)
+                .AddConstructor(ctor => ctor.InjectFields(intFieldReference, stringFieldReference)))
             .ToSourceString();
 
         return Verifier.Verify(source, settings: DefaultVerifySettings, extension: "cs");
