@@ -4,13 +4,18 @@
         <TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
         <LangVersion>10</LangVersion>
         <Nullable>enable</Nullable>
+        <AssemblyTitle>Bearded FluentSourceGen</AssemblyTitle>
+        <Description>Allows using C# source generators using a fluent, type safe interface rather than string templating.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/beardgame/fluentsourcegen</RepositoryUrl>
+        <PackageTags>game-development;gamedev;code-generation;source-generation;csharp-sourcegenerator;roslyn-generator</PackageTags>
     </PropertyGroup>
 
-	<ItemGroup>
-		<Compile Remove="IsExternalInit.cs" />
-	</ItemGroup>
+    <ItemGroup>
+        <Compile Remove="IsExternalInit.cs" />
+    </ItemGroup>
 
-	<!-- Hacks to make netstandard more usable -->
+    <!-- Hacks to make netstandard more usable -->
     <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
         <!-- Needed to make indexes work -->
         <PackageReference Include="IndexRange" Version="1.0.2" />
