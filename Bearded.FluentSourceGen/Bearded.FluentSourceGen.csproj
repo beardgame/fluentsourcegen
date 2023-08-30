@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
@@ -18,7 +18,7 @@
     <!-- Hacks to make netstandard more usable -->
     <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
         <!-- Needed to make indexes work -->
-        <PackageReference Include="IndexRange" Version="1.0.2" />
+        <PackageReference Include="IndexRange" Version="1.0.3" />
         <!-- Needed to make C#9 features work -->
         <Compile Include="IsExternalInit.cs" />
     </ItemGroup>
