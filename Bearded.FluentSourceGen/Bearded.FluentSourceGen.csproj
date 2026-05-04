@@ -18,7 +18,7 @@
     <!-- Hacks to make netstandard more usable -->
     <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
         <!-- Needed to make indexes work -->
-        <PackageReference Include="IndexRange" Version="1.0.3" />
+        <PackageReference Include="IndexRange" Version="1.1.1" />
         <!-- Needed to make C#9 features work -->
         <Compile Include="IsExternalInit.cs" />
     </ItemGroup>
